@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors.scss';
+
+.search__bar {
+    position: relative;
+
+    input {
+        height: 40px;
+        width: 220px;
+        border-radius: 20px;
+        background-color: $black;
+        border: none;
+        outline: none;
+        padding-left: 40px;
+        color: $white;
+        font-size: 16px;
+    }
+
+    img {
+        height: 28px;
+        margin: 4px;
+        position: absolute;
+    }
+}
