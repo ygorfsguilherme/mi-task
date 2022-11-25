@@ -5,7 +5,7 @@ import arrowBack from '../../assets/icon/back-arrow.svg'
 
 export default function Back() {
   return (
-    <Link className={styled.back__arrow} to="/">
+    <Link className={styled.back__arrow} to="/user/home">
         <img src={arrowBack} alt="" />
     </Link>
   )

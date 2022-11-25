@@ -1,21 +1,27 @@
+// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { typeData } from '../../interface/typeData';
 import styled from './Card.module.scss';
 
-const data = {
-    title:'titulo',
-    time:'23/10/2002',
-    content:"Criado em 2011 pelo time do Facebook, o React surgiu com o objetivo de otimizar a atualização e a sincronização de atividades simultâneas no feed de notícias da rede social, entre eles chat, status, listagem de contatos e outros."
-}
+interface Props extends typeData{}
 
-export default function Card() {
+export default function Card({id, title, time, content}: Props) {
+
+  const navigate = useNavigate()
+
+  function ViewTask(even: any){
+    navigate(`/user/task/${even.currentTarget.id}`)
+  }
+
   return (
-    <section className={styled.card}>
+    <section className={styled.card} id={id} onClick={ViewTask}>
         <span></span>
 
         <article>
-            <h2>{data.title}</h2>
-            <time>{data.time}</time>
+          <h2>{title}</h2>
+          <time>{time}</time>
 
-            <p>{data.content}</p>
+          <p>{content}</p>
         </article>
     </section>
   )

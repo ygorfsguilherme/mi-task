@@ -12,4 +12,8 @@
     &:hover {
         background-color: $black;
     }
+
+    &:active {
+        transform: scale(0.9);
+    }
 }
