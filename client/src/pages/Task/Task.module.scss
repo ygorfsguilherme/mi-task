@@ -1,4 +1,4 @@
-@import '../../assets/styles/colors.scss';
+@import '../../assets/css/colors.scss';
 .task {
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
         margin-bottom: 15px;
         border-radius: 10px;
         color: $white;
-        padding: 8px;
+        padding: 0;
         scrollbar-width: none;
     }
 

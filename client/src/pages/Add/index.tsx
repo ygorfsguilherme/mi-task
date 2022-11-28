@@ -1,30 +1,22 @@
-import React, { useEffect, useState } from 'react'
 import Button from '../../components/ButtonCicle'
 import styled from './Add.module.scss'
 import Check from '../../assets/icon/check.svg'
-import axios from 'axios'
-import { typeData } from '../../interface/ITypeData'
+import { Field, Form, Formik} from 'formik'
+import  {HttpPost}  from '../../utils/http'
 import { useNavigate } from 'react-router-dom'
-import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik'
-import '../../assets/styles/containerButtons.scss'
 
 export default function Add() {
   const navigate = useNavigate()
 
-  const handleLogin = (values: any) => {
-    axios.post("http://localhost:3000/task", values)
-    .then(response => {
-      if(response.status == 201){
-        navigate("/user/home")
-      }
-    })
+  const handleCreatePost = (values: any) => {
+    HttpPost(values, navigate)
   }
 
   return (
     <>
       <h3>Titulo</h3>
 
-      <Formik initialValues={{}} onSubmit={handleLogin}>
+      <Formik initialValues={{}} onSubmit={handleCreatePost}>
         <Form className={styled.add}>
             <Field type="text" name="title" />
             <Field as="textarea" type="text" name="content" />

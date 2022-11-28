@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Modal from "./components/Modal";
-import Navbar from './components/Navbar';
-import { searchData } from "./interface/ISearchData";
-import Add from './pages/Add';
-import Home from './pages/Home';
-import Task from "./pages/Task";
+import Modal from "../components/Modal";
+import Navbar from '../components/Navbar';
+import { searchData } from "../interface/ISearchData";
+import Add from '../pages/Add';
+import Home from '../pages/Home';
+import Task from "../pages/Task";
 
 export default function AppRouter() {
   const [data, setData] = useState<searchData>()
