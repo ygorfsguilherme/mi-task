@@ -1,6 +1,6 @@
 // import { useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router';
-import { typeData } from '../../interface/typeData';
+import { typeData } from '../../interface/ITypeData';
 import styled from './Card.module.scss';
 
 interface Props extends typeData{}
@@ -21,7 +21,7 @@ export default function Card({id, title, time, content}: Props) {
           <h2>{title}</h2>
           <time>{time}</time>
 
-          <p>{content}</p>
+          <p>{content?.substring(0, 250)}</p>
         </article>
     </section>
   )

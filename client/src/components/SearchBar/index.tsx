@@ -1,6 +1,6 @@
 import styled from './Search.module.scss'
 import lupa from '../../assets/icon/lupa.svg'
-import { searchData } from '../../interface/searchData';
+import { searchData } from '../../interface/ISearchData';
 interface Props extends searchData {
 }
 

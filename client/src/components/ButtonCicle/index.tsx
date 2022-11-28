@@ -6,12 +6,13 @@ import styled from './Button.module.scss'
 interface Props {
   icon: string;
   color: string;
-  action?: VoidFunction;
+  action?: any;
+  type?: boolean;
 }
 
-export default function Button({icon, color, action}:Props) {
+export default function Button({icon, color, action, type}:Props) {
   return (
-      <button type='submit' onClick={action} className={classNames(styled.button__cicle, styled[color])}>
+      <button type={type ? 'submit' : 'button'} onClick={action} className={classNames(styled.button__cicle, styled[color])}>
         <img src={icon} alt="" />
       </button>
   )

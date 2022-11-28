@@ -3,28 +3,16 @@ import Button from '../../components/ButtonCicle'
 import styled from './Add.module.scss'
 import Check from '../../assets/icon/check.svg'
 import axios from 'axios'
-import { typeData } from '../../interface/typeData'
+import { typeData } from '../../interface/ITypeData'
 import { useNavigate } from 'react-router-dom'
+import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik'
+import '../../assets/styles/containerButtons.scss'
 
 export default function Add() {
   const navigate = useNavigate()
 
-  const [data, setData] = useState<typeData>({
-    title: '',
-    time: new Date(),
-    content: '',
-  })
-
-  function enviar(e: any){
-    e.preventDefault()
-    
-    setData({...data, time: new Date()})
-
-    axios.post("http://localhost:3000/task",{
-      title: data.title,
-      time: data.time,
-      content: data.content,
-    })
+  const handleLogin = (values: any) => {
+    axios.post("http://localhost:3000/task", values)
     .then(response => {
       if(response.status == 201){
         navigate("/user/home")
@@ -33,12 +21,19 @@ export default function Add() {
   }
 
   return (
-    <form onSubmit={enviar} className={styled.add}>
-        <h3>Titulo</h3>
-        <input type="text" value={data.title} onChange={e => {setData({...data, title: e.target.value})}} />
-        <textarea value={data.content} onChange={e => {setData({...data, content: e.target.value})}} ></textarea>
+    <>
+      <h3>Titulo</h3>
 
-        <Button color='green' icon={Check} />
-    </form>
+      <Formik initialValues={{}} onSubmit={handleLogin}>
+        <Form className={styled.add}>
+            <Field type="text" name="title" />
+            <Field as="textarea" type="text" name="content" />
+            
+            <div className="buttons">
+              <Button type={true} color='green' icon={Check} />
+            </div>
+        </Form>
+      </Formik>
+    </>
   )
 }

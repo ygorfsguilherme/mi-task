@@ -5,26 +5,37 @@
 }
 
 html {
+    display: flex;
     background-color: $black80;
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     color: $white;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 body {
     background-color: $black;
+    position: relative;
     display: flex;
     width: 100%;
     min-width: 360px;
+    height: calc(100% - 20px);
     border-radius: 10px;
     max-width: 360px;
     margin: 0 auto;
-    justify-content: center;
-   
+    justify-content: center;   
 }
 
 @media screen and (max-width: 475px) {
     html {
-        background-color: $black;
+        background-color: $black80;
+    }
+
+    body {
+        min-width: 100%;
+        height: 100%;
+        border-radius: 0;
     }
 }

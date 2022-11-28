@@ -17,11 +17,11 @@ public class MiTaskApplication {
 	@Component
 	public static class Runner implements ApplicationRunner {
 		@Value("${mitask.info}")
-		String ambiente;
+		String profile;
 
 		@Override
 		public void run(ApplicationArguments args) throws Exception {
-			System.out.println(ambiente);
+			System.out.println(profile);
 		}
 	}
 }

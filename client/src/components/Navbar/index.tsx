@@ -1,6 +1,6 @@
 import React, { Children } from 'react'
 import { useLocation } from 'react-router-dom';
-import { searchData } from '../../interface/searchData';
+import { searchData } from '../../interface/ISearchData';
 import Back from '../Back';
 import SearchBar from '../SearchBar';
 import styled from './Navbar.module.scss'
