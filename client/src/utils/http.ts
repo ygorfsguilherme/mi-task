@@ -20,7 +20,7 @@ export const HttpGetId = async (id: string, setData: React.Dispatch<React.SetSta
 
 export const HttpPost = async (values: any, navigate: any) => { 
     axios.post(url, values)
-        .then(response => response.status == 201 ? navigate("/user/home") : '')
+        .then(response => response.status == 201 ? navigate("/home") : '')
 }
 
 export const HttpPut = async (id: string, data: typeData) => {
@@ -34,5 +34,5 @@ export const HttpPut = async (id: string, data: typeData) => {
 
 export const HttpDelete = async (id: string, navigate: any) => {
     axios.delete(url + `/${id}`)
-        .then(response => response.status == 200 ? navigate("/user/home") : '')
+        .then(response => response.status == 200 ? navigate("/home") : '')
 }

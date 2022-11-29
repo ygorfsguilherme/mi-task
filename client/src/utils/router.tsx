@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import RouteAuth from "./routeAuth";
 import RouteUser from "./routeUser";
 

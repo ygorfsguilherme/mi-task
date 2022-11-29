@@ -12,7 +12,7 @@ export default function RouteUser() {
   return (
     <>
       <Routes>
-        <Route path="*" element={<Navbar data={data} setData={setData}/>} />
+        <Route path="/*" element={<Navbar data={data} setData={setData}/>} />
       </Routes>
 
       <Routes>
