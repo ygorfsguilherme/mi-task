@@ -1,31 +1,24 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Modal from "../components/Modal";
-import Navbar from '../components/Navbar';
-import { searchData } from "../interface/ISearchData";
-import Add from '../pages/Add';
-import Home from '../pages/Home';
-import Task from "../pages/Task";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import RouteAuth from "./routeAuth";
+import RouteUser from "./routeUser";
 
 export default function AppRouter() {
-  const [data, setData] = useState<searchData>()
+  const [tokenStatus, setTokenStatus] = useState(false)
+  const location = useLocation().pathname
 
-  return (
-    <Router>
+  useEffect(()=>{
+    const token = localStorage.getItem('mitask-token')
+    if(token){
+      setTokenStatus(true)
+    } else {
+      setTokenStatus(false)
+    }
+    
+  }, [location])
 
-      <Routes>
-        <Route path={"/user/*"} element={<Navbar data={data} setData={setData}/>} />
-      </Routes>
-
-      <Routes>
-        <Route path={"/user/home"} element={<Home data={data} setData={setData}/>} />
-        <Route path="/user/add" element={<Add />} />
-        <Route path="/user/task/*" element={<Task />} />
-      </Routes>
-
-      <Routes>   
-        <Route path="/login" element={<Home data={data} setData={setData}/>} />
-      </Routes>
-    </Router>
-  );
+  if(tokenStatus){
+    return <RouteUser/>
+  }
+  return <RouteAuth />
 }

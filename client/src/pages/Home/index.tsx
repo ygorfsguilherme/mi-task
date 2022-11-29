@@ -29,6 +29,7 @@ export default function Home({ data }:Props) {
         {task.map( (task: typeData) => 
           <Card 
             id={task.id}
+            key={task.id}
             title={task.title}
             time={task.time}
             content={task.content}

@@ -13,7 +13,7 @@ export default function Navbar({data, setData} : Props) {
   
   return (
     <nav className={styled.navbar}>
-      {location.pathname == '/user/home' ? <SearchBar data={data} setData={setData} /> : <Back />}
+      {location.pathname == '/' ? <SearchBar data={data} setData={setData} /> : <Back />}
       <span className={styled.perfil}></span>
     </nav>
   )
