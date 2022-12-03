@@ -21,14 +21,7 @@
 
 ## <img src="https://cdn-icons-png.flaticon.com/512/3534/3534033.png" style="widht:30px; height:30px;" /> Descrição
 
-O Mitask é uma ferramenta para criação de tarefas ou ideias. Sendo possível acessar de qualquer lugar, seja desktop ou mobile. Além de sincronizar entre dispositivos.
-Uma ferramenta simples e fácil uso.
-
-> Leve, não é preciso instalar em seus dispositivos e ocupado aqueles MB de suas músicas ou fotos favoritas.
-
-> Simples, para criação de notas, ideias e tarefas rápidas sem complexidade ou conhecimentos avançados.
-
-> Múltiplos dispositivos, você pode acessar de qualquer dispositivo desktop, mobile e smart tv, que tenha um navegador instalado.
+O Mitask é uma ferramenta para criação de tarefas ou ideias. Sendo possível acessar de qualquer lugar, seja desktop ou mobile. Uma ferramenta simples e fácil uso.
 
 Um simples projeto para demostras minhas habilidades na criação de app web utilizando as tecnologias que domino, no back end e igualmente no front end.
 
