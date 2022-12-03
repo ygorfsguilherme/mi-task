@@ -30,15 +30,15 @@ Uma ferramenta simples e fácil uso.
 
 > Múltiplos dispositivos, você pode acessar de qualquer dispositivo desktop, mobile e smart tv, que tenha um navegador instalado.
 
+Um simples projeto para demostras minhas habilidades na criação de app web utilizando as tecnologias que domino, no back end e igualmente no front end.
+
+A aplicação e composta por duas parte front end e back end, em que front end foi desenvolvido em react com typescript e o back end desenvolvido em java com spring boot.
+
 <div align="center">
   <img src="https://img.icons8.com/color/48/null/error--v1.png"/>
       <h2>AVISO: totalmente educacional</h2>
   <img src="https://img.icons8.com/color/48/null/error--v1.png"/>
 </div>
-
-Um simples projeto para demostras minhas habilidades na criação de app web utilizando as tecnologias que domino, no back end e igualmente no front end.
-
-A aplicação e composta por duas parte front end e back end, em que front end foi desenvolvido em react com typescript e o back end desenvolvido em java com spring boot.
 
 ## <img height="35px" src="https://img.icons8.com/color/96/null/puzzle-matching.png"/> Funcionalidades
 - Login e Registra
