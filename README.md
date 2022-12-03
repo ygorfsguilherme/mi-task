@@ -1,5 +1,7 @@
+<div align="center">
+   <img src="https://github.com/ygorfsguilherme/RepoImageProjects/blob/main/LOGO%20SMALL.png?raw=true" />
+</div>
 
-# Mi Task
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=React&message=FRAMEWORK&color=blue&style=for-the-badge" #vitrinedev/>
    <img src="http://img.shields.io/static/v1?label=Java&message=17.0.5&color=red&style=for-the-badge" #vitrinedev/>
@@ -28,12 +30,19 @@ Uma ferramenta simples e fácil uso.
 
 <div align="center">
   <img src="https://img.icons8.com/color/48/null/error--v1.png"/>
-      <h2>AVISO: mi task é totalmente educacional</h2>
+      <h2>AVISO: totalmente educacional</h2>
   <img src="https://img.icons8.com/color/48/null/error--v1.png"/>
 </div>
 
-
 Um simples projeto para demostras minhas habilidades na criação de app web utilizando as tecnologias que domino, no back end e igualmente no front end.
+
+# <img height="35px" src="https://img.icons8.com/color/96/null/puzzle-matching.png"/> Funcionalidades
+- Login e Registra
+- Mostrar todas as tarefas do usuario
+- E possivel editar, criar e deleta tarefa
+
+# <img height="30px" src="https://img.icons8.com/color/96/null/template.png"/> Layout ou Deploy da Aplicação
+- [Figma - Representação das funcionalidades e designer](https://www.figma.com/file/uSp36JGpnZZ8IqwQGQTR2V/MiTask?node-id=0%3A1&t=Nn9YigM5OxZMJqoy-0)
 
 # <img src="https://cdn-icons-png.flaticon.com/512/1835/1835211.png" style="widht:30px; height:30px;" /> Ferramentas Utilizadas
 - <img height="20px"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /> React
@@ -45,7 +54,7 @@ Um simples projeto para demostras minhas habilidades na criação de app web uti
 
 Outras tecnologias como, banco de dados H2, css module, spring security e jwt
 
-# Pré-requisitos
+# <img height="35px" src="https://img.icons8.com/fluency/96/null/requirement.png"/> Pré-requisitos
 - [Nodejs 16.xx](https://nodejs.org)
 - [Java 17.xx](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.htmlnode)
 
@@ -91,5 +100,4 @@ executando o projeto em modo desenvolvedor ou teste
 ```
 npm run dev
 ```
-## Licença
-Mi Task é licenciado pelo MIT.
+## <img height="30px" src="https://img.icons8.com/external-filled-outline-icons-maxicons/85/null/external-balance-law-and-justice-filled-outline-filled-outline-icons-maxicons.png"/> Mi Task é licenciado pelo MIT License.
