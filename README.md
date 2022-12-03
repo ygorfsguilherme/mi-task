@@ -117,4 +117,4 @@ npm run dev
 ```
 ## <img height="30px" src="https://img.icons8.com/external-filled-outline-icons-maxicons/85/null/external-balance-law-and-justice-filled-outline-filled-outline-icons-maxicons.png"/> Licença
 
-Mi Task é licenciado pelo MIT License.
+Mi Task é licenciado pelo [MIT License](https://github.com/ygorfsguilherme/mi-task/blob/main/LICENSE).
