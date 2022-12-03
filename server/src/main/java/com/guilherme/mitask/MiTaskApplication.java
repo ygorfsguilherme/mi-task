@@ -21,7 +21,7 @@ public class MiTaskApplication {
 
 		@Override
 		public void run(ApplicationArguments args) throws Exception {
-			System.out.println(profile);
+			System.out.println("This is application is run in mode: " + profile);
 		}
 	}
 }

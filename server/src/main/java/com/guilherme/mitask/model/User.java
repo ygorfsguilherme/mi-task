@@ -1,5 +1,7 @@
 package com.guilherme.mitask.model;
 
+import com.guilherme.mitask.dto.UserRegisterDto;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,13 +26,17 @@ public class User {
         this.password = password;
     }
 
+    public User(UserRegisterDto userRegisterDto) {
+        this.name = userRegisterDto.getName();
+        this.email = userRegisterDto.getEmail();
+        this.password = userRegisterDto.getPassword();
+    }
+
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public String getEmail() {
         return email;
