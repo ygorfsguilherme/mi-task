@@ -10,7 +10,7 @@
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=greeb&style=for-the-badge" #vitrinedev/>
 </p>
 
-## Tópicos
+## <img height="30px" src="https://img.icons8.com/plasticine/100/null/todo-list.png"/> Tópicos
 - [Descrição](#-descrição)
 - [Funcionalidades](#-funcionalidades)
 - [Layout](#-layout-ou-deploy-da-aplicação)
