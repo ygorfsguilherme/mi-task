@@ -18,7 +18,6 @@ public class MiTaskApplication {
 	public static class Runner implements ApplicationRunner {
 		@Value("${mitask.info}")
 		String profile;
-
 		@Override
 		public void run(ApplicationArguments args) throws Exception {
 			System.out.println("This is application is run in mode: " + profile);
