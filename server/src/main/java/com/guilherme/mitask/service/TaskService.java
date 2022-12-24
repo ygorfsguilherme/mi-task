@@ -17,8 +17,14 @@ public class TaskService {
     public Task save(Task task){
         return this.taskRepository.save(task);
     }
+
     public List<TaskListDto> findAllUser(User user){
         List<Task> taskList = this.taskRepository.findAllByUser(user.getId());
+        return taskList.stream().map(TaskListDto::new).toList();
+    }
+
+    public List<TaskListDto> findByTitle(String title, User user){
+        List<Task> taskList = this.taskRepository.findByTitle(title, user.getId());
         return taskList.stream().map(TaskListDto::new).toList();
     }
 
@@ -38,4 +44,6 @@ public class TaskService {
                 user.getId()
         );
     }
+
+
 }

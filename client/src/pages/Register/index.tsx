@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { Field, Form, Formik } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
@@ -6,8 +7,17 @@ import styled from './Register.module.scss'
 
 export default function Register() {
   const navigate = useNavigate()
-  function handleRegister(values: {}){
-    navigate('/')
+  function handleRegister(values: any){
+    
+    axios.post("http://localhost:8080/register", {
+        name: values.name,
+        email: values.email,
+        password: values.password
+      }).then(result => {
+        if(result.status == 201){
+          navigate("/")
+        }
+      }).catch(error => console.log('error'));
   }
 
   return (
@@ -31,7 +41,7 @@ export default function Register() {
           <Field
             type='password'
             className={styled.input}
-            name='senha'
+            name='password'
             placeholder='Senha'
           />
           

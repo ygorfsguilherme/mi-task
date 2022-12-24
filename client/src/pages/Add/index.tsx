@@ -19,7 +19,7 @@ export default function Add() {
       <Formik initialValues={{}} onSubmit={handleCreatePost}>
         <Form className={styled.add}>
             <Field type="text" name="title" />
-            <Field as="textarea" type="text" name="content" />
+            <Field as="textarea" type="text" name="contents" />
             
             <div className="buttons">
               <Button type={true} color='green' icon={Check} />

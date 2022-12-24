@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -25,47 +26,72 @@ public class TaskController {
     TaskService taskService;
 
     @GetMapping("/task/{id}")
-    public ResponseEntity<TaskDto> GetTask(@PathVariable Long id, @RequestBody TaskCreateDto taskCreateDto){
+    public ResponseEntity<TaskDto> GetTask(
+            @PathVariable Long id,
+            Principal principal){
         try{
-            User user = this.userService.findUser(taskCreateDto.getUser());
+            User user = this.userService.findByName(principal.getName());
             TaskDto task = new TaskDto(this.taskService.findTask(id, user));
             return ResponseEntity.ok().body(task);
         } catch (Exception ex){
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(403).build();
+        }
+    }
+
+    @GetMapping("/taskall")
+    public ResponseEntity<List<TaskListDto>> GetAllTask(Principal principal){
+        try {
+            User user = this.userService.findByName(principal.getName());
+            System.out.println(principal.getName());
+            return ResponseEntity.ok().body(this.taskService.findAllUser(user));
+        }catch (Exception ex){
+            return ResponseEntity.status(403).build();
         }
     }
 
     @GetMapping("/task")
-    public ResponseEntity<List<TaskListDto>> GetAllTask(@RequestBody TaskCreateDto taskCreateDto){
-        try{
-            User user = this.userService.findUser(taskCreateDto.getUser());
-            return ResponseEntity.ok().body(this.taskService.findAllUser(user));
-        } catch (Exception ex){
-            return ResponseEntity.status(401).build();
+    public ResponseEntity<List<TaskListDto>> GetByTitle(
+            @RequestParam("title") String title,
+            Principal principal){
+
+        try {
+            User user = this.userService.findByName(principal.getName());
+            System.out.println(principal.getName());
+            return ResponseEntity.ok().body(
+                    this.taskService.findByTitle(title, user)
+            );
+
+        }catch (Exception ex){
+            return ResponseEntity.status(403).build();
         }
     }
 
     @PostMapping("/task")
     @Transactional
-    public ResponseEntity<TaskCreateDto> CreateTask(@RequestBody TaskCreateDto taskCreateDto, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<?> CreateTask(
+            @RequestBody TaskCreateDto taskCreateDto,
+            Principal principal,
+            UriComponentsBuilder uriBuilder){
         try {
-            User user = this.userService.findUser(taskCreateDto.getUser());;
+            User user = this.userService.findByName(principal.getName());
             Task task = this.taskService.save(new Task(taskCreateDto, user));
             URI uri = uriBuilder.path("task/{id}").buildAndExpand(task.getId()).toUri();
             return ResponseEntity.created(uri).body(taskCreateDto);
         } catch (Exception ex){
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(403).build();
         }
     }
     @DeleteMapping("/task/{id}")
     @Transactional
-    public ResponseEntity<?> DeleteTask(@PathVariable Long id, @RequestBody TaskCreateDto taskCreateDto){
+    public ResponseEntity<?> DeleteTask(
+            @PathVariable Long id,
+            Principal principal){
         try {
-            User user = this.userService.findUser(taskCreateDto.getUser());
+            User user = this.userService.findByName(principal.getName());
             this.taskService.deleteTask(id, user);
             return ResponseEntity.ok().build();
         } catch (Exception ex){
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(403).build();
         }
     }
 
@@ -74,17 +100,16 @@ public class TaskController {
     public ResponseEntity<TaskUpdateDto> UpdateTask(
             @PathVariable Long id,
             @RequestBody TaskUpdateDto taskUpdateDto,
+            Principal principal,
             UriComponentsBuilder uriBuilder){
         try {
-            User user = this.userService.findUser(taskUpdateDto.getUser());
+            User user = this.userService.findByName(principal.getName());
             Task task = new Task(taskUpdateDto);
             task.setId(id);
             this.taskService.updateByTask(task, user);
             return ResponseEntity.ok().build();
         } catch (Exception ex){
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(403).build();
         }
     }
-
-
 }

@@ -1,16 +1,25 @@
+import axios from 'axios'
 import { Field, Form, Formik } from 'formik'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
+import { HttpLogin } from '../../utils/http'
 import styled from './Login.module.scss'
 
 export default function Login() {
-  const nav = useNavigate()
-  const token = localStorage.getItem('mitask-token')
+  const navigate = useNavigate()
+  const location = useLocation().pathname
 
-  function handleLogin(values: {}){
-    localStorage.setItem('mitask-token', '123134')
-    nav('/home')
+  function handleLogin(values: any){
+    HttpLogin(values)
+
+    setTimeout(() => {
+      if(location == "/"){
+        navigate("/home")
+      }else{
+        navigate("/")
+      }
+    }, 4000)
   }
 
   return (
@@ -20,6 +29,7 @@ export default function Login() {
       <Formik initialValues={{}} onSubmit={handleLogin}>
         <Form className={styled.login}>
           <Field 
+            type="email"
             className={styled.input}
             name='email'
             placeholder='E-mail'
@@ -28,7 +38,7 @@ export default function Login() {
           <Field
             type='password'
             className={styled.input}
-            name='senha'
+            name='password'
             placeholder='Senha'
           />
           

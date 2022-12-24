@@ -9,6 +9,10 @@ public class TaskDto {
     private String title;
     private String contents;
     private LocalDate date;
+
+    public TaskDto() {
+    }
+
     public TaskDto(Task task) {
         this.id = task.getId();
         this.title = task.getTitle();

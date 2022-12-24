@@ -6,6 +6,9 @@ public class TaskUpdateDto {
     private String contents;
     private Long idUSer;
 
+    public TaskUpdateDto() {
+    }
+
     public TaskUpdateDto(Long id, String title, String contents, Long idUser) {
         this.id = id;
         this.title = title;

@@ -39,11 +39,11 @@ export default function Task() {
 
             <article>
               <h2>{data.title}</h2>
-              <time>{data.time}</time>
+              <time>{data.date}</time>
 
               <textarea 
-                value={data.content}
-                onChange={(e)=> {setData({...data, content: e.target.value})}}
+                value={data.contents}
+                onChange={(e)=> {setData({...data, contents: e.target.value})}}
               ></textarea>
             </article>
         </section>

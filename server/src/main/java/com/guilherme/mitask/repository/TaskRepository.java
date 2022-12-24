@@ -15,6 +15,9 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(value = "SELECT * FROM tasks WHERE user_id = :idUser AND id = :idTask", nativeQuery = true)
     Task findTask(@Param("idTask") Long idTask, @Param("idUser") Long idUser);
 
+    @Query(value = "SELECT * FROM tasks WHERE title LIKE :title% AND user_id = :idUser", nativeQuery = true)
+    List<Task> findByTitle(@Param("title") String title, @Param("idUser") Long idUser);
+
     @Modifying
     @Query(value = "DELETE FROM tasks WHERE user_id = :idUser AND id = :idTask", nativeQuery = true)
     void deleteByTask(@Param("idTask") Long idTask, @Param("idUser") Long idUser);

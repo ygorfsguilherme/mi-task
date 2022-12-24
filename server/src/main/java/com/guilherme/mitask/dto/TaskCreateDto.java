@@ -5,12 +5,13 @@ import com.guilherme.mitask.model.User;
 public class TaskCreateDto {
     private String title;
     private String contents;
-    private Long idUSer;
 
-    public TaskCreateDto(String title, String contents, Long idUser) {
+    public TaskCreateDto() {
+    }
+
+    public TaskCreateDto(String title, String contents) {
         this.title = title;
         this.contents = contents;
-        this.idUSer = idUser;
     }
 
     public String getTitle() {
@@ -19,10 +20,6 @@ public class TaskCreateDto {
 
     public String getContents() {
         return contents;
-    }
-
-    public Long getUser() {
-        return idUSer;
     }
 
 }

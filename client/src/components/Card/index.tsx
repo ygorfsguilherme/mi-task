@@ -5,12 +5,12 @@ import styled from './Card.module.scss';
 
 interface Props extends typeData{}
 
-export default function Card({id, title, time, content}: Props) {
+export default function Card({id, title, date, contents}: Props) {
 
   const navigate = useNavigate()
 
-  function ViewTask(even: any){
-    navigate(`/user/task/${even.currentTarget.id}`)
+  function ViewTask(e: any){
+    navigate(`/user/task/${e.currentTarget.id}`)
   }
 
   return (
@@ -19,9 +19,9 @@ export default function Card({id, title, time, content}: Props) {
 
         <article>
           <h2>{title}</h2>
-          <time>{time}</time>
+          <time>{date}</time>
 
-          <p>{content?.substring(0, 250)}</p>
+          <p>{contents?.substring(0, 250)}</p>
         </article>
     </section>
   )

@@ -10,6 +10,9 @@ public class TaskListDto {
     private String contents;
     private LocalDate date;
 
+    public TaskListDto() {
+    }
+
     public TaskListDto(Task listTask) {
         this.id = listTask.getId();
         this.title = listTask.getTitle();
