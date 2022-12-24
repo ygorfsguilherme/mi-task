@@ -1,0 +1,11 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 10px;
+    width: 320px;
+    // transform: translateX(-50%);
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+}

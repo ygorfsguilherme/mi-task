@@ -1,0 +1,24 @@
+@import '../../assets/css/colors.scss';
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.2);
+    color: $white;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.9);
+    }
+
+    &:hover{
+        background-color: $blue80;
+    }
+}
