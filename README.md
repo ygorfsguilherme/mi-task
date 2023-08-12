@@ -108,6 +108,13 @@ npm install
 ```
 npm run dev
 ```
+
+![Captura de tela de 2023-08-12 00-55-53](https://github.com/ygorfsguilherme/mi-task/assets/100237670/9d77e325-5981-4b29-886f-712562e4a091)![Captura de tela de 2023-08-12 00-55-57](https://github.com/ygorfsguilherme/mi-task/assets/100237670/2f810af5-104e-4f9b-af44-be8ebbdbd219)![Captura de tela de 2023-08-12 00-57-17](https://github.com/ygorfsguilherme/mi-task/assets/100237670/a019cfde-e7ad-469e-93b4-0efd7b85bc3d)![Captura de tela de 2023-08-12 00-57-40](https://github.com/ygorfsguilherme/mi-task/assets/100237670/0fda9321-27a1-4ddd-a32b-875e247c92ab)![Captura de tela de 2023-08-12 00-58-40](https://github.com/ygorfsguilherme/mi-task/assets/100237670/dfd20676-f222-4aea-aaf8-53ca0bd9c3bc)
+![Captura de tela de 2023-08-12 00-58-57](https://github.com/ygorfsguilherme/mi-task/assets/100237670/11cbee72-c938-4170-bfaa-49b5d9217915)
+
+
+
+
 ## <img height="30px" src="https://img.icons8.com/external-filled-outline-icons-maxicons/85/null/external-balance-law-and-justice-filled-outline-filled-outline-icons-maxicons.png"/> Licença
 
 Mi Task é licenciado pelo [MIT License](https://github.com/ygorfsguilherme/mi-task/blob/main/LICENSE).
