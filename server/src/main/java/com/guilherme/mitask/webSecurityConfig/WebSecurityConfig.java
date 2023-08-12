@@ -46,8 +46,10 @@ public class WebSecurityConfig {
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().headers().frameOptions().sameOrigin()
-                .and().addFilterBefore(new AuthTokenFilter(tokenService, userRepository),
-                        UsernamePasswordAuthenticationFilter.class);
+                .and().addFilterBefore(
+                        new AuthTokenFilter(tokenService, userRepository),
+                        UsernamePasswordAuthenticationFilter.class
+                );
 
         return http.build();
     }

@@ -2,41 +2,55 @@ import axios from "axios"
 import { typeData } from "../interface/ITypeData"
 const url_base = "http://localhost:8080/"
 
-const token = localStorage.getItem("mitask-token")
+function headers(auth?: string){
+  const token = localStorage.getItem("mitask-token")
 
-const headers = { 
-        'Content-Type': 'application/json', 
-        'Authorization': `Bearer ${token}`
+  if(auth == "noauth"){
+    const headers = { 
+      'Content-Type': 'application/json',
+    }
+  
+    return headers
+  }
+
+  const headers = { 
+    'Content-Type': 'application/json', 
+    'Authorization': `Bearer ${token}`
+  }
+
+  return headers
 }
 
 function Logout(){
   localStorage.removeItem("mitask-token")
 }
 
-export const HttpGetAll = async (setData: React.Dispatch<React.SetStateAction<never[]>>) => {
+export const HttpGetAll = async (
+  setData: React.Dispatch<React.SetStateAction<never[]>>,
+  navigate: any) => {
+
     var config = {
         method: 'get',
         url: `${url_base}taskall`,
-        headers: { 
-          'Content-Type': 'application/json', 
-          'Authorization': `Bearer ${token}`
-      }
+        headers: headers()
     };
       
     axios(config)
     .then(response => {
-        if(response.status == 200){
-            setData(response.data)
-        }
-    }).catch(error => console.log("lo"));
+      if(response.status == 200){
+          setData(response.data)
+      }
+    }).catch(error => navigate("/"));
 }
 
-export const HttpGetTitle = async (data: any, setData: React.Dispatch<React.SetStateAction<never[]>>) => {
+export const HttpGetTitle = async (
+  data: any,
+  setData: React.Dispatch<React.SetStateAction<never[]>>) => {
 
       var config = {
           method: 'get',
           url: `${url_base}task?title=${data}`,
-          headers: headers
+          headers: headers()
       };
         
       axios(config)
@@ -47,11 +61,13 @@ export const HttpGetTitle = async (data: any, setData: React.Dispatch<React.SetS
       }).catch(error => localStorage.removeItem("mitask-token"));
 }
 
-export const HttpGetId = async (id: string, setData: React.Dispatch<React.SetStateAction<typeData>>) => {
+export const HttpGetId = async (
+  id: string,
+  setData: React.Dispatch<React.SetStateAction<typeData>>) => {
     var config = {
         method: 'get',
         url: `${url_base}task/${id}`,
-        headers: headers
+        headers: headers()
     };
       
     axios(config)
@@ -60,24 +76,26 @@ export const HttpGetId = async (id: string, setData: React.Dispatch<React.SetSta
 }
 
 export const HttpPost = async (values: any, navigate: any) => {
-    const data = JSON.stringify({
-      "title": values.title,
-      "contents": values.contents
-    });
+  const token = localStorage.getItem("mitask-token")
 
-    var config = {
-      method: 'post',
-      url: `${url_base}task`,
-      headers: headers,
-      data : data
-    };
-    
-    axios(config)
-    .then(response => response.status == 201 ? navigate("/home") : '')
-    .catch(error => {
-      Logout()
-      navigate("/")
-    });
+  const data = JSON.stringify({
+    "title": values.title,
+    "contents": values.contents
+  });
+
+  var config = {
+    method: 'post',
+    url: `${url_base}task`,
+    headers: headers(),
+    data : data
+  };
+  
+  axios(config)
+  .then(response => response.status == 201 ? navigate("/home") : '')
+  .catch(error => {
+    // Logout()
+    // navigate("/")
+  });
 }
 
 export const HttpPut = async (id: string, values: typeData) => {
@@ -90,7 +108,7 @@ export const HttpPut = async (id: string, values: typeData) => {
     var config = {
       method: 'put',
       url: `${url_base}task/${id}`,
-      headers: headers,
+      headers: headers(),
       data : data
     };
     
@@ -104,7 +122,7 @@ export const HttpDelete = async (id: string, navigate: any) => {
     var config = {
         method: 'delete',
         url: `${url_base}task/${id}`,
-        headers: headers
+        headers: headers()
       };
       
     axios(config)
@@ -121,9 +139,7 @@ export const HttpLogin = async (values: any) => {
   var config = {
     method: 'post',
     url: `${url_base}auth`,
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: headers("noauth"),
     data : data
   };
   
@@ -134,4 +150,29 @@ export const HttpLogin = async (values: any) => {
     }
   })
   .catch(error => console.log('error', error));
+}
+
+export const HttpRegister = async (values: any, navigate: any) => {
+  const data = JSON.stringify({
+    "name": values.name,
+    "email": values.email,
+    "password": values.password
+  });
+
+  var config = {
+    method: 'post',
+    url: `${url_base}register`,
+    headers: headers("noauth"),
+    data : data
+  };
+  
+  axios(config)
+  .then(result => { 
+    if(result.status == 200){
+      navigate("/")
+    }
+  })
+  .catch(error => {
+    console.log('error', error.data)
+  });
 }

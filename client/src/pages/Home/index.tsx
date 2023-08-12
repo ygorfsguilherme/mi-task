@@ -15,32 +15,9 @@ export default function Home({ data }:Props) {
   const navigate = useNavigate()
   const [task, setData] = useState([])
 
-  const url_base = "http://localhost:8080/"
-
-  const token = localStorage.getItem("mitask-token")
-
   useEffect(() => {
     if(data == '' || data == undefined){
-
-      var config = {
-          method: 'get',
-          url: `${url_base}taskall`,
-          headers: { 
-            'Content-Type': 'application/json', 
-            'Authorization': `Bearer ${token}`
-        }
-      };
-        
-      axios(config)
-      .then(response => {
-          if(response.status == 200){
-              setData(response.data)
-          }
-      }).catch(error => console.log("lo"));
-      console.log("Pegando Tudo")
-    }else {
-      HttpGetTitle(data, setData)
-      console.log("Pegando Por Titulo")
+      HttpGetAll(setData, navigate)
     }
   }, [data])
 
