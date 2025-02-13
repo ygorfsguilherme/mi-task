@@ -1,6 +1,6 @@
 import axios from "axios"
 import { typeData } from "../interface/ITypeData"
-const url_base = "http://localhost:8080/"
+const url_base = "http://127.0.0.1:8080/"
 
 function headers(auth?: string){
   const token = localStorage.getItem("mitask-token")
@@ -31,7 +31,7 @@ export const HttpGetAll = async (
 
     var config = {
         method: 'get',
-        url: `${url_base}taskall`,
+        url: `${url_base}task/all`,
         headers: headers()
     };
       
@@ -158,6 +158,8 @@ export const HttpRegister = async (values: any, navigate: any) => {
     "email": values.email,
     "password": values.password
   });
+
+  console.log(values)
 
   var config = {
     method: 'post',

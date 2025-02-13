@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.guilherme.mitask.exceptions.NoAuthorized;
+import com.guilherme.mitask.exceptions.NoAuthorizedException;
 import com.guilherme.mitask.model.User;
 import com.guilherme.mitask.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             }
 
             if (token != null && !tokenValid){
-                throw new NoAuthorized();
+                throw new NoAuthorizedException();
             }
 
             filterChain.doFilter(request, response);
@@ -57,7 +57,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
         } catch (Exception e) {
-            throw new NoAuthorized();
+            throw new NoAuthorizedException();
         }
     }
 

@@ -22,6 +22,7 @@ import java.util.List;
 public class TaskController {
     @Autowired
     UserService userService;
+    
     @Autowired
     TaskService taskService;
 
@@ -38,11 +39,10 @@ public class TaskController {
         }
     }
 
-    @GetMapping("/taskall")
+    @GetMapping("/task/all")
     public ResponseEntity<List<TaskListDto>> GetAllTask(Principal principal){
         try {
             User user = this.userService.findByName(principal.getName());
-            System.out.println(principal.getName());
             return ResponseEntity.ok().body(this.taskService.findAllUser(user));
         }catch (Exception ex){
             return ResponseEntity.status(403).build();
@@ -81,6 +81,7 @@ public class TaskController {
             return ResponseEntity.status(403).build();
         }
     }
+
     @DeleteMapping("/task/{id}")
     @Transactional
     public ResponseEntity<?> DeleteTask(

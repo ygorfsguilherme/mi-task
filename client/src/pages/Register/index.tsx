@@ -4,20 +4,27 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
 import styled from './Register.module.scss'
+import { HttpRegister } from '../../utils/http'
 
 export default function Register() {
   const navigate = useNavigate()
   function handleRegister(values: any){
+
+    HttpRegister({
+      name: values.name,
+      email: values.email,
+      password: values.password
+    }, navigate)
     
-    axios.post("http://localhost:8080/register", {
-        name: values.name,
-        email: values.email,
-        password: values.password
-      }).then(result => {
-        if(result.status == 201){
-          navigate("/")
-        }
-      }).catch(error => console.log('error'));
+  //   axios.post("https://upgraded-zebra-xgp6p6rx9vvcwqg-5173.app.github.dev/register", {
+  //       name: values.name,
+  //       email: values.email,
+  //       password: values.password
+  //     }).then(result => {
+  //       if(result.status == 201){
+  //         navigate("/")
+  //       }
+  //     }).catch(error => console.log('error'));
   }
 
   return (
