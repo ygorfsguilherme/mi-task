@@ -8,7 +8,7 @@ O formato segue as convenções de [Keep a Changelog](https://keepachangelog.com
 
 ## [1.1.0] - 2025-02-13
 ### Alterado
-- `EmailAlreadyExistsException` marcada como **obsoleta** (`@Deprecated`). Agora, utilize `UserAlreadyExistsException`.
+- `EmailExists` marcada como **obsoleta** (`@Deprecated`). Agora, utilize `UserAlreadyExistsException`.
 
 ### Corrigido
 - Resolvido problema na rota **GET /tasks** que não estava retornando todas as tarefas cadastradas corretamente.
